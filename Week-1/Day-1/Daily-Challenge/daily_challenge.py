@@ -10,3 +10,10 @@ else:
 
 print(some_name[0])
 print(some_name[-1])
+
+partial_name = ""
+for n in range(0, length_of_name):
+    partial_name += some_name[n]
+    print(partial_name)
+
+
