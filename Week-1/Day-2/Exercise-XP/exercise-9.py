@@ -33,7 +33,7 @@ print()
 # item 4 of the exercise
 
 list_of_names = ['Bill', 'John', 'Mary', 'Bob']
-list_of_names_copy = ['Bill', 'John', 'Mary', 'Bob']
+list_of_names_copy = list_of_names.copy()
 for name in list_of_names_copy:
     age_of_teen = int(input(f"What's your age, {name}? "))
     if age_of_teen < 16 or age_of_teen > 21:
