@@ -1,3 +1,5 @@
+# **TEST CASES**
+
 # items_purchase = {
 #   "Water": "$1",
 #   "Bread": "$3",
@@ -16,14 +18,14 @@
 # }
 # wallet = "$100" 
 
-items_purchase = {
-  "Phone": "$999",
-  "Speakers": "$300",
-  "Laptop": "$5,000",
-  "PC": "$1200"
-}
+# items_purchase = {
+#   "Phone": "$999",
+#   "Speakers": "$300",
+#   "Laptop": "$5,000",
+#   "PC": "$1200"
+# }
 
-wallet = "$1" 
+# wallet = "$1" 
 
 #first turn wallet string into integers
 wallet_string = ""
