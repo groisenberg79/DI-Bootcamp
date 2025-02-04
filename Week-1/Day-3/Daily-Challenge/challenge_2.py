@@ -25,12 +25,14 @@ items_purchase = {
 
 wallet = "$1" 
 
+#first turn wallet string into integers
 wallet_string = ""
 for letter in wallet:
     if letter != "$" and letter != ",":
       wallet_string += letter
 wallet = int(wallet_string)
 
+#now turn values in each dict entry into an integer 
 for item in items_purchase.keys():
   price_str = ""
   for letter in items_purchase[item]:
@@ -38,12 +40,18 @@ for item in items_purchase.keys():
       price_str += letter
   items_purchase[item] = int(price_str)
 
+# in order to add each bought item to the final list,
+# create a list of (price, item) tuples (i.e. the order of
+# the dict items is inverted) and order it according to 
+# ascending prices
 item_price_list = list(items_purchase.items())
 inv_item_price_list = []
 for member in item_price_list:
     inv_item_price_list.append((member[1], member[0]))
 inv_item_price_list.sort()
 
+# finally, compute the biggest set of items that
+# can be bought without exceeding the wallet
 money_spent = 0
 final_list = []
 for member in inv_item_price_list:
