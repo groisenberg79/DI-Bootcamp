@@ -26,11 +26,12 @@ data = [
 ]
 
 # item 1
-#
-# since the instructions to this exercise were vague w.r.t.
-# what it means by "track the right/wrong answers", I simply
-# assumed that
-#  
+# OBSERVATION: the instructions are vague w.r.t. what it means to 
+# "keep track of correct/incorrect answers", but since what it actually asks
+# for as an output is a list of wrong answers (I included the respective questions),
+# I assumed this "tracking" was not a required output, 
+# but only information necessary for the final algorithm to work.
+
 def question_gen (data):
     '''
     -- input: list of dictionaries {'question':<some_question>, 'answer':<answer_to_some_question>} 
@@ -44,5 +45,11 @@ def question_gen (data):
             wrong_answers.append({data[i]['question']: answer})
     return wrong_answers
 
-print(question_gen(data))
+wrong = question_gen(data)
+print(wrong)
 
+def number_wrong(data, wrong_answers):
+    print(f"The number of correct answers is {len(data) - len(wrong_answers)}.")
+    print(f"The number of incorrect answers is {len(wrong_answers)}.")
+    
+number_wrong(data, wrong)
