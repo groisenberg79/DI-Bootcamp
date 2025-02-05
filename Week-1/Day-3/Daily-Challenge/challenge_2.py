@@ -63,6 +63,9 @@ inv_item_price_list.sort()
 # "In fact the prices of Apple + Honey + Fan + Bananas 
 # + Pan is more that $100, so you cannot by the Pan, 
 # instead you can by the Spoon that is $2"
+#
+# FURTHER OBSERVATION: Now I realize there is a more elegant solution
+# that does not require the ordering of elements I introduced ... 
 
 money_spent = 0
 final_list = []
