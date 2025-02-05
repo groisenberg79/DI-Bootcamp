@@ -14,3 +14,6 @@ make_shirt("M")
 # item 7
 make_shirt("S", "Python is ok ...")
 
+# bonus
+make_shirt(text="Hello friends", size="L")
+
