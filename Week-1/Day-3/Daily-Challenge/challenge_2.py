@@ -7,7 +7,7 @@
 #   "Fertilizer": "$20"
 # }
 # wallet = "$300"
-
+#
 # items_purchase = {
 #   "Apple": "$4",
 #   "Honey": "$3",
@@ -18,14 +18,13 @@
 # }
 # wallet = "$100" 
 
-# items_purchase = {
-#   "Phone": "$999",
-#   "Speakers": "$300",
-#   "Laptop": "$5,000",
-#   "PC": "$1200"
-# }
-
-# wallet = "$1" 
+items_purchase = {
+  "Phone": "$999",
+  "Speakers": "$300",
+  "Laptop": "$5,000",
+  "PC": "$1200"
+}
+wallet = "$1" 
 
 #first turn wallet string into integers
 wallet_string = ""
@@ -54,6 +53,17 @@ inv_item_price_list.sort()
 
 # finally, compute the biggest set of items that
 # can be bought without exceeding the wallet
+
+# IMPORTANT OBSERVATION (for the TA): the exercise seems to
+# suggest that we should take into account the *sum* of the
+# values of the list, and not simply the values of the items
+# individually. Here's the relevant observation, taken from
+# the exercise, that backs my interpretation:
+#
+# "In fact the prices of Apple + Honey + Fan + Bananas 
+# + Pan is more that $100, so you cannot by the Pan, 
+# instead you can by the Spoon that is $2"
+
 money_spent = 0
 final_list = []
 for member in inv_item_price_list:
