@@ -48,6 +48,7 @@ def question_gen (data):
 wrong = question_gen(data)
 print(wrong)
 
+# item 2
 def number_wrong(data, wrong_answers):
     print(f"The number of correct answers is {len(data) - len(wrong_answers)}.")
     print(f"The number of incorrect answers is {len(wrong_answers)}.")
