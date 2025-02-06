@@ -35,7 +35,17 @@ for j in range(len(matrix[0])):
             secret_message = secret_message + matrix[i][j]
         else:
             secret_message = secret_message + " "
-print(secret_message)
+
+# Initially, I didn't realize that the extra spaces should
+# be deleted, so here I take care of that creating a string
+# to store a clean version of the secret message
+secret_message_clean = ""
+for i in range(len(secret_message)):
+    if secret_message[i] != ' ':
+        secret_message_clean += secret_message[i]
+    elif i != 0 and secret_message[i - 1] != ' ':
+        secret_message_clean += secret_message[i]
+print(secret_message_clean)
 
 
 
