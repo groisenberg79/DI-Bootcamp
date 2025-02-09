@@ -2,20 +2,24 @@ class Zoo:
     def __init__(self, zoo_name):
         self.name = zoo_name
         self.animals = []
+
     def add_animal(self, new_animal):
         '''Adds a new animal to zoo'''
         if new_animal not in self.animals:
             self.animals.append(new_animal)
+
     def get_animals(self):
         '''Prints all animals in the zoo'''
         for animal in self.animals:
             print(animal)
+
     def sell_animal(self, animal_sold):
         '''Sells an animal from the zoo'''
         if animal_sold in self.animals:
             self.animals.remove(animal_sold)
         else:
             print(f"{animal_sold} not in {self.name}.")
+
     def sort_animals(self):
         '''Groups all animals in the zoo according to first letter
         in alphabetical order. Returns a dict with entries  <group>: <animals>'''
@@ -27,6 +31,7 @@ class Zoo:
             else:
                 dict_animals[animal[0]].append(animal)
         return dict_animals
+    
     def get_groups(self):
         '''prints all the groups'''
         dict_animals = self.sort_animals()
