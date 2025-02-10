@@ -21,7 +21,12 @@ class Dog:
                 "Let's call it a draw before the police shows up.")
         print()
             
-# item 3
+# >>>>>>> TESTING THE CODE
+# OBS: Notice that this test code will run in the next exercise,
+# since the class Dog will be imported. So you should comment 
+# the code below if you wish to avoid that (it would be cleaner if
+# we had the module on a separate file, but that's not what was 
+# asked in the exercise).
 
 elvis = Dog("Elvis", 10, 12)
 ludwig = Dog("Ludwig", 4, 13)

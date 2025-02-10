@@ -6,26 +6,33 @@ class Familiy:
     def born(self, **child):
         self.members.append(child)
         print("Congratulation for the new child!\n")
-
-    def is_18(self, member_name):
+    
+    # helper function
+    def find_member(self, member_name):
         for person in self.members:
             if person.get('name') == member_name:
-                if person['age'] >= 18:
-                    return True
-                else:
-                    return False
+                return person.copy()
+
+    def is_18(self, member_name):
+        member = self.find_member(member_name)
+        if member['age'] >= 18:
+            return True
+        else:
+            return False
     
     def family_presentation(self):
         print(f"The {self.last_name} Family:\n")
         for person in self.members:
-            print(f"Name : {person['name']}")
-            print(f"Age: {person['age']}")
-            print(f"Gender: {person['gender']}")
-            if person['is_child'] == True:
-                print("Minor")
-            else:
-                print("Adult")
+            for key in person.keys():
+                print(f"{key:<15} : {person[key]}")
             print()
+
+# >>>>>>> TESTING THE CODE
+# OBS: Notice that this test code will run in the next exercise,
+# since the class Family will be imported. So you should comment 
+# the code below if you wish to avoid that (it would be cleaner if
+# we had the module on a separate file, but that's not what was 
+# asked in the exercise).
 
 new_family = Familiy([
         {'name':'Michael','age':35,'gender':'Male','is_child':False},

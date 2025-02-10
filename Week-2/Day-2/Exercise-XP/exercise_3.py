@@ -28,10 +28,8 @@ class  PetDog(Dog):
         else:
             print(f"{self.name} is not trained.")
 
-# Notice that the testing statements of exercise_2.py will be executed.
-# If you don't want that to happen, just comment the statements by
-# the end of the file. (ideally, we would have a clean .py file for
-# this module, but that's not what the exercise asks.))
+# >>>>>>> TESTING THE CODE
+
 elvis = Dog("Elvis", 10, 12)
 ludwig = Dog("Ludwig", 4, 13)
 mr_perfect = Dog("Mr. Perfect", 7, 20)
