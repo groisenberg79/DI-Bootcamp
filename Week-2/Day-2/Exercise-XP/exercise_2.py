@@ -22,6 +22,7 @@ class Dog:
         print()
             
 # item 3
+
 elvis = Dog("Elvis", 10, 12)
 ludwig = Dog("Ludwig", 4, 13)
 mr_perfect = Dog("Mr. Perfect", 7, 20)
