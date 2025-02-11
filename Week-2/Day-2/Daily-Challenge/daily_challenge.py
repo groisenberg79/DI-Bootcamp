@@ -25,15 +25,13 @@ class Pagination:
         if self.currentPage < self.totalPages:
             self.currentPage += 1
             return self
-        else:
-            pass
+        return self
     
     def prevPage(self):
         if self.currentPage > 1:
             self.currentPage -= 1
             return self
-        else:
-            pass
+        return self
     
     def lastPage(self):
         self.currentPage = self.totalPages
