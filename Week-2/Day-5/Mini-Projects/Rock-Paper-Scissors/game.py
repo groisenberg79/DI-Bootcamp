@@ -8,7 +8,7 @@ class Game:
             if  user_item in choices:
                 return  user_item
             else:
-                print("Invalid option.\n")
+                print("Invalid option.")
 
     def get_computer_item(self):
         choices = ['r', 'p', 's']
@@ -35,15 +35,15 @@ class Game:
         user_item = self.get_user_item()
         computer_item = self.get_computer_item()
         game_result = self.get_game_result(user_item,computer_item)
-        print(f"\nYou chose: {user_item}. The computer chose: {computer_item}.")
+        print(f"You chose: {user_item}. The computer chose: {computer_item}.")
         if game_result == 'win':
-            print("You won.")
+            print("You won.\n")
             return game_result
         elif game_result == 'loss':
-            print("You lost! Hahaha!")
+            print("You lost! Hahaha!\n")
             return game_result
         else:
-            print("It's a draw.")
+            print("It's a draw.\n")
             return game_result
     
-
+    
