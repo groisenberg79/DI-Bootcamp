@@ -32,3 +32,33 @@
 # Python to define which definition of a given method is chosen when the same
 # method name is used in two or more classes belonging to 
 # a shared class hierarchy.
+
+# >>>>>> PART 2
+import random
+class Card:
+    def __init__(self, suit, value):
+        self.suit = suit
+        self.value = value
+
+class Deck:
+    def __init__(self, cards): # cards is a set of objects of type Card
+        self.cards = cards
+    
+    def shuffle(self, cards):
+        # create the base card set with which cards will be compared
+        card_base = set()
+        for suit in ['Hearts', 'Diamonds', 'Clubs', 'Spades']:
+            for value in ['A','2','3','4','5','6','7','8','9','10','J','Q','K']:
+                card_base.add(Card(suit, value))
+
+        # see if there are more cards than allowed and check if they are 
+        # repetiions or alien cards
+
+        # shuffle the cards randomly
+
+    def deal(self):
+        pass
+        # deals a single card from the deck. 
+        # After a card is dealt, it should be removed from the deck.
+            
+        
