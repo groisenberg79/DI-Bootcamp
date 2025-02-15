@@ -41,24 +41,66 @@ class Card:
         self.value = value
 
 class Deck:
-    def __init__(self, cards): # cards is a set of objects of type Card
+    def __init__(self, cards): # cards is a list of objects of type Card
         self.cards = cards
     
-    def shuffle(self, cards):
-        # create the base card set with which cards will be compared
-        card_base = set()
+    def shuffle(self):
+        # create the base card list with which cards will be compared
+        card_base = list()
         for suit in ['Hearts', 'Diamonds', 'Clubs', 'Spades']:
             for value in ['A','2','3','4','5','6','7','8','9','10','J','Q','K']:
-                card_base.add(Card(suit, value))
+                card_base.append(Card(suit, value))
+        # check if there is any card missing (I'm assuming there are no
+        # card repetitions and only valid cards are supplied by the user)
+        missing_cards = list()
+        for b_card in card_base:
+            is_in_deck = 0
+            for card in cards:
+                if b_card.suit == card.suit and b_card.value == card.value:
+                    is_in_deck += 1
+                    break
+            if is_in_deck == 0:
+                missing_cards.append(b_card)
 
-        # see if there are more cards than allowed and check if they are 
-        # repetiions or alien cards
-
-        # shuffle the cards randomly
-
+        if missing_cards != []:
+            print("The following cards are missing:")
+            for card in missing_cards:
+                print(f"{card.value} of {card.suit}")
+            pass
+        # shuffle the cards randomly and return the shuffeld deck
+        return random.shuffle(self.cards)
+    
     def deal(self):
-        pass
-        # deals a single card from the deck. 
-        # After a card is dealt, it should be removed from the deck.
+        # check if there are any cards to be dealt
+        if self.cards == []:
+            print("The deck is empty.")
+            pass
+        else:
+        # remove the top card from deck and return it to the user
+            return self.cards.pop()
             
-        
+# >>>>>> TESTING THE CODE
+# cards = list()
+# for suit in ['Hearts', 'Diamonds', 'Clubs', 'Spades']:
+#             for value in ['A','2','3','4','5','6','7','8','9','10','J','Q','K']:
+#                 cards.append(Card(suit, value))
+# deck = Deck(cards)
+# print("Printing unshuffeld deck:\n")
+# for card in deck.cards:
+#     print(f"{card.value} of {card.suit}")
+# print()    
+
+# deck.shuffle()
+# print(f"Printing shuffled deck:\n")
+# for card in deck.cards:
+#     print(f"{card.value} of {card.suit}")
+# print() 
+
+# deal = deck.deal()
+# print(f"Your card: {deal.value} of {deal.suit}")
+# print("Now there must be one card missing!")
+# deck.shuffle()
+# print(f"Let's take out the following card: {cards[1].value} of {cards[1].suit}.")
+# cards.remove(cards[1])
+# print("Now there must be two cards missing!")
+# deck.shuffle()
