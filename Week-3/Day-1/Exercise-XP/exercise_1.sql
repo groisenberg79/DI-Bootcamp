@@ -18,13 +18,14 @@
 -- ('Large desk', 300),
 -- ('Fan', 80)
 
--- INSERT INTO items (first_name, last_name)
--- VALUES
+INSERT INTO customers (first_name, last_name)
+VALUES
 -- ('Greg', 'Jones'),
 -- ('Sandra', 'Jones'),
 -- ('Scott', 'Scott'),
 -- ('Trevor', 'Green'),
 -- ('Melanie', 'Johnson')
+('Billy', 'Schupenhoussen')
 
 -- item 3 of exercise:
 
