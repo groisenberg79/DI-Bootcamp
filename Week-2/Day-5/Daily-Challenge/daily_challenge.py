@@ -55,8 +55,8 @@ class Deck:
         missing_cards = list()
         for b_card in card_base:
             is_in_deck = 0
-            for card in cards:
-                if b_card.suit == card.suit and b_card.value == card.value:
+            for card in self.cards:
+                if b_card.suit == self.card.suit and b_card.value == self.card.value:
                     is_in_deck += 1
                     break
             if is_in_deck == 0:
