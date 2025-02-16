@@ -1,12 +1,12 @@
 -- Item 1 of exercise:
 
 -- CREATE TABLE items (
--- item_type VARCHAR(50),
+-- item_type VARCHAR(50) PRIMARY KEY,
 -- price INTEGER
 -- )
 
 -- CREATE TABLE customers (
--- first_name VARCHAR(50),
+-- first_name VARCHAR(50) PRIMARY KEY,
 -- last_name VARCHAR(50)
 -- )
 
