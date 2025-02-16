@@ -26,7 +26,7 @@
 -- ('Trevor', 'Green'),
 -- ('Melanie', 'Johnson')
 
--- item of exercise:
+-- item 3 of exercise:
 
 -- SELECT * FROM items
 
