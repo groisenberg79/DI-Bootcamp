@@ -7,5 +7,14 @@
 -- ORDER BY price DESC
 
 -- ITEM 3
-SELECT * FROM customers
-ORDER BY first_name LIMIT 3 
+-- SELECT first_name, last_name FROM customers
+-- ORDER BY first_name LIMIT 3 
+
+-- ITEM 4
+-- SELECT last_name FROM customers
+-- ORDER BY last_name DESC
+
+
+
+
+
