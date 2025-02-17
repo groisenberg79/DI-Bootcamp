@@ -1,14 +1,16 @@
 -- Item 1 of exercise:
 
 -- CREATE TABLE items (
--- item_type VARCHAR(50) PRIMARY KEY,
--- price INTEGER
+--     item_id SERIAL PRIMARY KEY,
+--     item_type VARCHAR(50),
+--     price INTEGER
 -- )
 
 -- CREATE TABLE customers (
--- first_name VARCHAR(50) PRIMARY KEY,
--- last_name VARCHAR(50)
--- )
+--     customer_id SERIAL PRIMARY KEY,
+--     first_name VARCHAR(50),
+--     last_name VARCHAR(50)
+--     )
 
 -- Item 2 of exercise:
 
