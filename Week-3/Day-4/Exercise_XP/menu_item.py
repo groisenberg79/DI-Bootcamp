@@ -21,7 +21,8 @@ class MenuItem:
         self.price = price
 
     def save(self):
-
+        '''This function saves the data
+         from a MenuItem object into the menu_items table'''
         query = f'''
         INSERT INTO 
             menu_items (item_name, item_price)
@@ -32,25 +33,31 @@ class MenuItem:
         connection.commit()
 
     def delete(self):
+        '''This function deletes the data
+        from a MenuItem object from the menu_items table'''
         query = f'''DELETE FROM
                         menu_items
                     WHERE
-                        item_name = '{self.name} AND item_price = '{self.price}'
+                        item_name = '{self.name}'
                 '''
         cursor.execute(query)
         connection.commit()
 
+    # Here, I'm assuming the user will only type 
+    # a valid price (i.e. positive integer, which is the 
+    # type of the value in the table). 
     def update(self, name, price):
-        self.name = name
-        self.price = price
-
-connection.close()
+        '''This function updates the row corresponding to
+        a MenuItem object with new item_name and item_price'''
+        query = f'''UPDATE 
+                        menu_items
+                    SET
+                        item_name = '{name}', item_price = '{price}'
+                    WHERE 
+                        item_name = '{self.name}' '''
+        cursor.execute(query)
+        connection.commit()        
 
 # item = MenuItem('pasta', 50)
 # item2 = MenuItem('pizza', 60)
-# item3 = MenuItem('Filet Mignon', 100)
-# item4 = MenuItem('lasagna', 45)
-
 # item2.save()
-# item3.save()
-# item4.save()
