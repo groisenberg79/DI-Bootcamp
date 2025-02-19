@@ -50,7 +50,7 @@
 -- FULL JOIN
 -- 	customer_profile AS cprof ON c.id = cprof.customer_id
 -- WHERE
--- 	cprof.isLoggedIn IS NULL
+-- 	cprof.isLoggedIn = FALSE
 	
 
 

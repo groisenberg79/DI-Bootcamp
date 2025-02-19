@@ -36,13 +36,14 @@
 -- ITEM 5
 
 -- CREATE TABLE library (
--- book_fk_id SERIAL ,
--- student_fk_id SERIAL,
+-- book_fk_id INTEGER ,
+-- student_fk_id INTEGER,
 -- borrowed_date DATE,
 -- PRIMARY KEY (book_fk_id, student_fk_id),
 -- FOREIGN KEY (book_fk_id) REFERENCES book (book_id) ON DELETE CASCADE ON UPDATE CASCADE,
 -- FOREIGN KEY (student_fk_id) REFERENCES student (student_id) ON DELETE CASCADE ON UPDATE CASCADE
 -- )
+
 
 -- ITEM 6
 
