@@ -1,0 +1,28 @@
+html, body{
+    height: 100%;
+
+}
+
+.container{
+    display: flex;
+    height: 95%;
+    width: 100%;
+}
+
+.color-canvas{
+    flex: 1;
+    background-color: brown;
+    border: 2px solid black;
+    border-radius: 2%;
+    margin-right: 5px;
+    
+}
+
+.drawing-canvas{
+    flex: 1;
+    background-color: blue;
+    border: 2px solid black;
+    border-radius: 2%;
+}
+
+
