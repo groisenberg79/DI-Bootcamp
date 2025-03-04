@@ -1,28 +1,61 @@
-html, body{
-    height: 100%;
-
+*{
+    box-sizing: border-box;}
+body{
+    margin: 0;
+    padding: 0;
 }
-
 .container{
-    display: flex;
-    height: 95%;
-    width: 100%;
-}
-
-.color-canvas{
-    flex: 1;
-    background-color: brown;
+    display: grid;
+    width: 100vw;
+    height: 100vh;
     border: 2px solid black;
-    border-radius: 2%;
-    margin-right: 5px;
-    
+    background-color: gray;
+    border-radius: 10px;
+    grid-template-columns: 1fr 4fr;
+    padding: 5px;
+}
+.color-canvas{
+    display: grid;
+    grid-template-rows: 1fr 7fr;
+    padding: 0.5rem;
+    gap: 3px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+button{
+    border-radius: 5px;
+}
+.color-palette{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(7, 1fr);
+    padding: 5px;
+    gap: 5px;
+    min-width: 0;
+    min-height: 0;
+}
+.color-pallete > * {
+    border: 1px solid black;
+}
+.container *{
+    border: 1px solid black;
+}
+.color-canvas > *{
+    border: 1px solid black;
+}
+.drawing-canvas *{
+    border-color: darkgrey;
 }
 
 .drawing-canvas{
-    flex: 1;
-    background-color: blue;
-    border: 2px solid black;
-    border-radius: 2%;
+    background-color: white;
+    display: grid;
+    grid-template-columns: repeat(60, 1fr);
+    grid-template-rows: repeat(60, 1fr);
+    min-width: 0;
+    min-height: 0;
+
 }
+
 
 
