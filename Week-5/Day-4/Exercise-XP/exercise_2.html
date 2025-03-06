@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #name, textarea{
+            width: 20%;
+        }
+        #input_area{
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+    </style>
+
+</head>
+<body>
+    <form method="post" action="http://127.0.0.1:3000/Week-5/Day-4/Exercise-XP/exercise_2.html">
+        <div id="input_area">
+            <label for="name">Name</label>
+                <input type="text" placeholder="Type your name here" name = "name" id="name">
+
+            <label for="comments">Comments</label>
+                <textarea name="comments" placeholder="Type your comments here" id="comments" rows="5"></textarea>  
+            
+        </div>
+        <button type="submit">SUBMIT</button>
+
+    </form>
+</body>
+</html>
+<!-- We will get sent to the same address -- but this time with no 
+ information coded on the url. -->
