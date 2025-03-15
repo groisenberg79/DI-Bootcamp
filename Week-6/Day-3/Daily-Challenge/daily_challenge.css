@@ -1,0 +1,33 @@
+* {
+text-align: center;
+}
+
+body {
+    background-image: url(finance-background.jpg);
+}
+
+h1, h2 {
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#main {
+    margin: auto;
+    border-radius: 10px;
+    width: 100vh;
+    padding: 10px;
+    background-color: rgb(243, 243, 125, 0.5);
+    
+}
+
+option, input {
+    text-align: left;
+}
+
+#output-area {
+    font-size: x-large;
+    font-weight: bold;
+    margin: 20px auto;
+    border-radius: 5px;
+    width: 50%;
+    background-color: rgb(174, 62, 62, 0.7);
+}
