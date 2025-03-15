@@ -1,5 +1,6 @@
 const color_set = ['Black', 'LightSlateGray', 'Brown', 'Navy', 'Blue', 'SkyBlue', 'Aquamarine', 'DarkOliveGreen', 'Green', 'Lime', 'Yellow', 'Gold', 'Orange', 'Red', 'Crimson', 'Indigo', 'Purple', 'Magenta', 'Violet', 'DeepPink', 'Pink'];
 let current_color;
+let is_active = false;
 
 function addDiv(container_class, number, class_name){
 // add 'number' divs to a class of name 'container_class' and set the class name to 'class_name' 
@@ -19,27 +20,45 @@ function addColorToPalette(){
     for(let i = 0; i < color_set.length; i++){
         colors[i].setAttribute('style', `background-color: ${color_set[i]}`);
         colors[i].dataset.color = color_set[i];
-        colors[i].addEventListener("click", setCurrentColor);
+        colors[i].addEventListener("dblclick", setCurrentColor);
     }
 }
 
-function addEventListener(){
-// add mouse over event listener to each pixel on the drawing canvas to change color
+function addEventsToPixel(pixel){
+    // add mouse over event listener to each pixel on the drawing canvas to change color
+    pixel.addEventListener('dblclick', activateDrawing);
+    pixel.addEventListener('mouseover', changeColor);
+    pixel.addEventListener('mouseup', dectivate);
+}
+
+function addPixels(){
+    addDiv('drawing-canvas', 60*60, 'pixel');
     const pixels = document.getElementsByClassName('pixel');
     for (let i = 0; i < pixels.length; i++){
-        pixels[i].addEventListener('mouseover', changeColor);
+        addEventsToPixel(pixels[i]);
     }
 }
 
 const div_set = document.getElementsByClassName('color');
 
 function setCurrentColor(e){
+    is_active = true;
     current_color = e.target.dataset.color;
 }
 function changeColor(e){
-    if (current_color != null){
+    if (current_color != null && is_active == true){
         e.target.style.backgroundColor = current_color;
     }
+}
+
+function activateDrawing(){
+    if (current_color != null && is_active == false){
+        is_active = true;
+    }
+}
+
+function dectivate(){
+    is_active = false;
 }
 
 const clear = document.querySelector('button')
@@ -54,6 +73,5 @@ function clearCanvas(e){
 }
 
 addDiv('color-palette', 21, 'color');
+addPixels()
 addColorToPalette();
-addDiv('drawing-canvas', 60*60, 'pixel');
-addEventListener();
