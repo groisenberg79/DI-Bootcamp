@@ -1,7 +1,7 @@
-const fs = require("fs");
+import fs from "fs";
 
-function readCrap() {
-  fs.readFile("./file-data.txt", "utf-8", (err, data) => {
+function readCrap(path) {
+  fs.readFile(path, "utf-8", (err, data) => {
     if (err) {
       throw new Error(`Couldn't read the file: ${err}`);
     } else {
@@ -10,4 +10,4 @@ function readCrap() {
   });
 }
 
-module.exports = { readCrap };
+export { readCrap };

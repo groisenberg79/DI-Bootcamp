@@ -1,3 +1,3 @@
-const { readCrap } = require("./read-file");
+import { readCrap } from "./read-file.js";
 
-readCrap();
+readCrap("./file-data.txt");
