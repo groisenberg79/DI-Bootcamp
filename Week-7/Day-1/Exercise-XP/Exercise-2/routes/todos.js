@@ -27,7 +27,9 @@ router.post("/todos", (req, res) => {
 // Update a to-do item by ID
 router.put("/todos/:id", (req, res) => {
   const id = Number(req.params.id);
-  const index = todos.findIndex((item) => item.id === id);
+  const index = todos.findIndex((item) => {
+    return item.id === id;
+  });
   if (index === -1) {
     res.status(404).json("task not found");
     return;
