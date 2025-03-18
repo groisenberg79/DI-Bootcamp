@@ -79,6 +79,7 @@ app.put("/api/posts/:id", (req, res) => {
   res.status(200).send("Product updated");
 });
 
+// delete post
 app.delete("/api/posts/:id", (req, res) => {
   const id = Number(req.params.id);
   const index = db.findIndex((post) => post.id === id);
