@@ -30,6 +30,8 @@ const db = [
   },
 ];
 
+app.use(express.json());
+
 // route for getting all blog posts, including id and title
 app.get("/blog-api/posts", (req, res) => {
   try {
@@ -47,7 +49,42 @@ app.get("/blog-api/posts/:id", (req, res) => {
     res.status(404).json({ message: "post not found" });
     return;
   }
-  res.json(post)
+  res.json(post);
 });
 
+// add a new blog post
+app.post("/blog-api/posts", (req, res) => {
+  const new_post = {
+    id: db.length + 1,
+    title: req.body.title,
+    content: req.body.content,
+  };
+  db.push(new_post);
+  res.status(201).json(new_post);
+});
 
+// update a blog post
+app.put("/blog-api/posts/:id", (req, res) => {
+  const id = Number(req.params.id);
+  const index = db.findIndex((post) => post.id === id);
+  if (index === -1) {
+    return res.status(404).send("post not found");
+  }
+  const updated_post = {
+    id: db[index].id,
+    title: req.body.title,
+    content: req.body.content,
+  };
+  db[index] = updated_post;
+  res.status(200).send("Product updated");
+});
+
+app.delete("/blog-api/posts/:id", (req, res) => {
+  const id = Number(req.params.id);
+  const index = db.findIndex((post) => post.id === id);
+  if (index === -1) {
+    return res.status(404).send("post not found");
+  }
+  db.splice(index, 1);
+  res.status(200).json("post deleted");
+});
