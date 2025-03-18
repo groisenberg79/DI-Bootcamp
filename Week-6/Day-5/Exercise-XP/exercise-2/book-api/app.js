@@ -35,7 +35,7 @@ const books = [
   },
 ];
 
-app.get("/book-api/books", (req, res) => {
+app.get("/api/books", (req, res) => {
   try {
     res.status(200).json(books);
   } catch (error) {
@@ -43,7 +43,7 @@ app.get("/book-api/books", (req, res) => {
   }
 });
 
-app.get("/book-api/books/:bookId", (req, res) => {
+app.get("/api/books/:bookId", (req, res) => {
   const { book_id } = req.params;
   const book = books.find((item) => item.id == book_id);
   if (!book) {
@@ -53,3 +53,6 @@ app.get("/book-api/books/:bookId", (req, res) => {
   res.status(200).json(book);
 });
 
+// Implement the “Create” route at POST /api/books. Use the express.json() middleware to parse JSON body content. Inside the route handler, create a new book object with an incremented ID and the data from the request body. Add the new book to the books array and return a JSON response with the new book and a status code of 201 (Created).
+
+app.post('/api/books')

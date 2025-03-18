@@ -33,7 +33,7 @@ const db = [
 app.use(express.json());
 
 // route for getting all blog posts, including id and title
-app.get("/blog-api/posts", (req, res) => {
+app.get("/api/posts", (req, res) => {
   try {
     res.status(201).json(db);
   } catch (error) {
@@ -42,7 +42,7 @@ app.get("/blog-api/posts", (req, res) => {
 });
 
 // route for getting a specific blog post according to id
-app.get("/blog-api/posts/:id", (req, res) => {
+app.get("/api/posts/:id", (req, res) => {
   const { id } = req.params;
   const post = db.find((item) => item.id == id);
   if (!post) {
@@ -53,7 +53,7 @@ app.get("/blog-api/posts/:id", (req, res) => {
 });
 
 // add a new blog post
-app.post("/blog-api/posts", (req, res) => {
+app.post("/api/posts", (req, res) => {
   const new_post = {
     id: db.length + 1,
     title: req.body.title,
@@ -64,7 +64,7 @@ app.post("/blog-api/posts", (req, res) => {
 });
 
 // update a blog post
-app.put("/blog-api/posts/:id", (req, res) => {
+app.put("/api/posts/:id", (req, res) => {
   const id = Number(req.params.id);
   const index = db.findIndex((post) => post.id === id);
   if (index === -1) {
@@ -79,7 +79,7 @@ app.put("/blog-api/posts/:id", (req, res) => {
   res.status(200).send("Product updated");
 });
 
-app.delete("/blog-api/posts/:id", (req, res) => {
+app.delete("/api/posts/:id", (req, res) => {
   const id = Number(req.params.id);
   const index = db.findIndex((post) => post.id === id);
   if (index === -1) {
