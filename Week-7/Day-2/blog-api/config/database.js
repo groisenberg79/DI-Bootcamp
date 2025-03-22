@@ -1,4 +1,3 @@
-const knex = require("knex");
 const { PASSWORD } = require('./config.js')
 
 const database = require('knex')({
