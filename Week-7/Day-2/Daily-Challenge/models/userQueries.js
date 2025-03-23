@@ -22,22 +22,14 @@ const updateQuery = (id, email, username, first_name, last_name) => {
         }, ['user_id']);
 }
 
-const saveHashedPassword = (username, hashedPassword) => {
-    return database('hashpwd').insert({
-        username: username,
-        password: hashedPassword
-    });
-};
-
-// get user hashed password
 const queryUserByUsername = (username) => {
     return database('hashpwd')
         .select('password')
         .where('username', username);
 };
 
-const saveUser = (username, email, first_name, last_name) => {
-    return database('users').insert({
+const saveUserWithTransaction = async (transaction, username, email, first_name, last_name) => {
+    return transaction('users').insert({
         username: username,
         email: email,
         first_name: first_name,
@@ -45,11 +37,18 @@ const saveUser = (username, email, first_name, last_name) => {
     });
 };
 
+const saveHashedPasswordWithTransaction = async (transaction, username, hashedPassword) => {
+    return transaction('hashpwd').insert({
+        username: username,
+        password: hashedPassword
+    });
+};
+
 module.exports = { 
     queryAllUsers,
     queryUserById,
     updateQuery,
-    saveUser,
-    saveHashedPassword,
+    saveUserWithTransaction,
+    saveHashedPasswordWithTransaction,
     queryUserByUsername,
 };

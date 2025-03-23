@@ -1,10 +1,11 @@
 const bcrypt = require('bcrypt');
+const { database }= require('../config/database.js');
 const {
     queryAllUsers,
     queryUserById,
     updateQuery,
-    saveUser,
-    saveHashedPassword
+    saveUserWithTransaction,
+    saveHashedPasswordWithTransaction
 } = require('../models/userQueries.js'); 
 
 const { hashPassword } = require('../utils/hash');
@@ -74,11 +75,6 @@ const loginUser = async (req, res) => {
     }
 };
 
-const executeRegister = async (username, email, first_name, last_name, hashedPassword) => {
-    await saveUser(username, email, first_name, last_name);
-    await saveHashedPassword(username, hashedPassword);
-};
-
 const registerUser = async (req, res) => {
     const { username, email, first_name, last_name, password } = req.body;
 
@@ -86,10 +82,17 @@ const registerUser = async (req, res) => {
         // Step 1: Hash the password
         const hashedPassword = await hashPassword(password);
 
-        // Step 2: Save user info in `users` table
-        await executeRegister(username, email, first_name, last_name, hashedPassword);
+        // Step 2: Execute transaction
+        await database.transaction(async (trx) => {
+            await saveUserWithTransaction(trx, username, email, first_name, last_name);
+            await saveHashedPasswordWithTransaction(trx, username, hashedPassword);
+        });
+
+        // Step 3: Respond with success
         res.status(201).json({ message: 'User registered successfully!' });
+
     } catch (err) {
+        // If an error occurs, transaction is rolled back automatically
         res.status(500).json({ error: `Registration failed: ${err.message}` });
     }
 };
