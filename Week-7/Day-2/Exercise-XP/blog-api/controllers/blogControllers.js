@@ -13,12 +13,19 @@ const showAllPosts = ((req, res) => {
 });
 
 
-const showPostById = ((req, res) => {
+const showPostById = async (req, res) => {
     const id = req.params.id;
-    getPostById(id)
-        .then((post) => res.status(200).json(post))
-        .catch((err) => res.status(500).json({error: err.message}));
-})
+    try {
+        const post = await getPostById(id);
+        if (post.length > 0) {
+            res.status(200).json(post);
+        } else {
+            res.status(404).json({message: "User not found"});
+        }
+    } catch (err) {
+        res.status(500).json({error: err.message});
+    }
+}
 
 const postToBlog = async (req, res) => {
     const new_title = req.body.title;
@@ -37,8 +44,13 @@ const updatePost = async (req, res) => {
     const new_content = req.body.blog_content;
 
     try {
-        await updateQuery(id, new_title, new_content);
-        res.status(200).json('Post updated successfully')
+        const output = await updateQuery(id, new_title, new_content);
+        if (output.length > 0) {
+            res.status(200).json('Post updated successfully')
+        } else {
+            res.status(404).json("User not found")
+        }
+        
     } catch (err) {
         res.status(500).json({error: err.message});
     }
@@ -47,8 +59,12 @@ const updatePost = async (req, res) => {
 const deletePost = async (req,res) => {
     const id = req.params.id;
     try {
-        await deleteQuery(id);
-        res.status(200).json('Post deleted successfully')
+       const output = await deleteQuery(id);
+        if (output.length > 0) {
+            res.status(200).json({message:'Post deleted successfully'});
+       } else {
+            res.status(404).json({message: 'User not found'})
+       }
     } catch (err) {
         res.status(500).json({error: err.message});
     }
