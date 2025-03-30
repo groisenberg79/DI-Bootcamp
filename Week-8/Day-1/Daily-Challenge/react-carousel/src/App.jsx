@@ -11,7 +11,7 @@ function App() {
     <div className="App">
       <Carousel width="500px">
         <div>
-          <img src={hongKong} alt="Slide 1" />
+          <img src={hongKong} alt="Slide 1" />cd
           <p className="legend">Legend 1</p>
         </div>
         <div>
