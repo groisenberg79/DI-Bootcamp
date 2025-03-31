@@ -2,14 +2,17 @@
 import { useState } from 'react'
 import './App.css'
 import ErrorBoundary from './components/ErrorBoundary';
+import CarModel from './components/CarModel';
+import Color from './components/Color';
+
+const carinfo = {name: "Ford", model: "Mustang"};
 
 const BuggyCounter = () => {
-  const [count, setCount] = useState(0);
-  const handleClick = () => setCount(count + 1);
+const [count, setCount] = useState(0);
+const handleClick = () => setCount(count + 1);
 
-  if (count > 5 ){
-    throw new Error('I crashed!');
-    
+if (count > 5 ){
+  throw new Error('I crashed!');
   }
 
   return <h1 onClick={handleClick}>{count}</h1>
@@ -47,6 +50,13 @@ function App() {
 
       <BuggyCounter></BuggyCounter>
       <BuggyCounter></BuggyCounter>
+
+      <br />
+
+      <CarModel model={carinfo.model} />
+      <Color />
+
+
 
     </>
   )
