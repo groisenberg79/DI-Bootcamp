@@ -3,7 +3,10 @@ import React, { Component } from "react";
 class Color extends Component {
     constructor(props){
         super(props);
-        this.state = {favoriteColor: "red"};
+        this.state = {
+            favoriteColor: "red",
+            show: true
+        };
     }
 
     componentDidMount() {
@@ -30,8 +33,21 @@ class Color extends Component {
             <>
                 <h2>My favorite color is {this.state.favoriteColor}.</h2>
                 <button onClick={this.setBlue}>change to blue</button>
+                <br />
+                {this.state.show && <Child />}
+                <button onClick={() => this.setState({ show: false })}>Delete</button>
             </>
         );
+    }
+}
+
+class Child extends Component {
+    componentWillUnmount() {
+        alert("Child component is being unmounted.");
+    }
+
+    render() {
+        return <h2>Hello, World!</h2>;
     }
 }
 
