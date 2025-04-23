@@ -16,6 +16,18 @@ type Order = {
   amount: number;
 };
 
+const showUser = (user: User):string => {
+  return `username: ${user.name} | age: ${user.age} \n`;
+}
+
+const showProduct = (product: Product):string => {
+  return `product id: ${product.id} | price: ${product.price} \n`;
+}
+
+const showOrder = (order: Order): string => {
+  return `order id: ${order.orderId} | amount: ${order.amount} \n`;
+}
+
 const handleData = (array: (User | Product | Order)[]): string => {
   let data = "";
   if (array.length === 0) {
@@ -23,13 +35,13 @@ const handleData = (array: (User | Product | Order)[]): string => {
   }
   for (let element of array) {
     if (element.type === "user") {
-      data += `username: ${element.name} | age: ${element.age} \n`;
+      data += showUser(user);
     }
     if (element.type === "product") {
-      data += `product id: ${element.id} | price: ${element.price} \n`;
+      data += showProduct(product);
     }
     if (element.type === "order") {
-      data += `order id: ${element.orderId} | amount: ${element.amount} \n`;
+      data += showOrder(order);
     }
   }
   return data;
